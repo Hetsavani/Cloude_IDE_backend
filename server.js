@@ -3,8 +3,8 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const authRoutes = require("./routes/authRoutes");
-const fileRoutes = require("./routes/fileRoutes");
+const authRoutes = require("./Routes/authRoutes");
+const fileRoutes = require("./Routes/fileRoutes");
 const executionRoutes = require("./Routes/executionRoutes");
 const terminalRoutes = require("./Routes/terminalRoutes"); // Import terminal routes
 const http = require("http");
