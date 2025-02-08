@@ -139,13 +139,13 @@ const execCode = (language, code, input, filename) => {
           });
           
           command = "java";
-          args = ["-cp", tmpDir,(filename+"").split(".")[0]];
+          args = ["-cp", tmpDir,(filename).split(".")[0]];
           break;
 
-        case "c++":
-          fileName = "program.cpp";
+        case "cpp":
+          fileName = filename;
           const cppFilePath = path.join(tmpDir, fileName);
-          const cppOutputPath = path.join(tmpDir, "program.exe");
+          const cppOutputPath = path.join(tmpDir, filename.split(".")[0]+".exe");
           await fs.writeFile(cppFilePath, code);
           
           // Compile C++ code
@@ -161,9 +161,9 @@ const execCode = (language, code, input, filename) => {
           break;
 
         case "c":
-          fileName = "program.c";
+          fileName = filename;
           const cFilePath = path.join(tmpDir, fileName);
-          const cOutputPath = path.join(tmpDir, "program.exe");
+          const cOutputPath = path.join(tmpDir, filename.split(".")[0]+".exe");
           await fs.writeFile(cFilePath, code);
           
           // Compile C code
