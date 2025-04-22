@@ -53,9 +53,9 @@ const loginUser = async (req, res) => {
             userId: user.id,
         };
 
-        const token = jwt.sign(payload, config.jwtSecret, { expiresIn: config.jwtExpiration });
+        const token = jwt.sign(payload, config.jwtSecret, { expiresIn: "30d" });
 
-        res.json({ message: 'Login successful', token });
+        res.json({ message: 'Login successful', token, name: user.username });
 
     } catch (err) {
         console.error(err.message);
