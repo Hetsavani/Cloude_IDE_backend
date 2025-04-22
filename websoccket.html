@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket Test</title>
+</head>
+<body>
+    <script>
+        // Create a new WebSocket connection
+        const socket = new WebSocket('ws://localhost:5000');
+
+        // Event handler for when the connection is opened
+        socket.onopen = () => {
+            console.log('WebSocket connection opened');
+            // Send a message to the server
+            socket.send(JSON.stringify({ type: 'input', data: 'Hello, server!' }));
+        };
+
+        // Event handler for receiving messages from the server
+        socket.onmessage = (event) => {
+            console.log('Message from server:', event.data);
+        };
+
+        // Event handler for when the connection is closed
+        socket.onclose = () => {
+            console.log('WebSocket connection closed');
+        };
+
+        // Event handler for errors
+        socket.onerror = (error) => {
+            console.error('WebSocket error:', error);
+        };
+    </script>
+</body>
+</html>
